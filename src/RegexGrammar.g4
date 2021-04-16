@@ -1,5 +1,8 @@
 grammar RegexGrammar;
 
+s            :    re
+             ;
+
 re           :    simpleRe  #SimpleReRe
              |    union    #UnionRe
              ;

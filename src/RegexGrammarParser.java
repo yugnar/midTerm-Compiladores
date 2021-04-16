@@ -19,13 +19,13 @@ public class RegexGrammarParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, CHAR=11, WS=12;
 	public static final int
-		RULE_re = 0, RULE_union = 1, RULE_simpleRe = 2, RULE_concatenation = 3, 
-		RULE_basicRe = 4, RULE_star = 5, RULE_plus = 6, RULE_elementaryRe = 7, 
-		RULE_group = 8, RULE_any = 9, RULE_eos = 10, RULE_letra = 11, RULE_set = 12, 
-		RULE_setItems = 13, RULE_setItem = 14, RULE_range = 15;
+		RULE_s = 0, RULE_re = 1, RULE_union = 2, RULE_simpleRe = 3, RULE_concatenation = 4, 
+		RULE_basicRe = 5, RULE_star = 6, RULE_plus = 7, RULE_elementaryRe = 8, 
+		RULE_group = 9, RULE_any = 10, RULE_eos = 11, RULE_letra = 12, RULE_set = 13, 
+		RULE_setItems = 14, RULE_setItem = 15, RULE_range = 16;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"re", "union", "simpleRe", "concatenation", "basicRe", "star", "plus", 
+			"s", "re", "union", "simpleRe", "concatenation", "basicRe", "star", "plus", 
 			"elementaryRe", "group", "any", "eos", "letra", "set", "setItems", "setItem", 
 			"range"
 		};
@@ -96,6 +96,42 @@ public class RegexGrammarParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	public static class SContext extends ParserRuleContext {
+		public ReContext re() {
+			return getRuleContext(ReContext.class,0);
+		}
+		public SContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_s; }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof RegexGrammarVisitor ) return ((RegexGrammarVisitor<? extends T>)visitor).visitS(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final SContext s() throws RecognitionException {
+		SContext _localctx = new SContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_s);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(34);
+			re();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class ReContext extends ParserRuleContext {
 		public ReContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -132,16 +168,16 @@ public class RegexGrammarParser extends Parser {
 
 	public final ReContext re() throws RecognitionException {
 		ReContext _localctx = new ReContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_re);
+		enterRule(_localctx, 2, RULE_re);
 		try {
-			setState(34);
+			setState(38);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				_localctx = new SimpleReReContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(32);
+				setState(36);
 				simpleRe();
 				}
 				break;
@@ -149,7 +185,7 @@ public class RegexGrammarParser extends Parser {
 				_localctx = new UnionReContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(33);
+				setState(37);
 				union();
 				}
 				break;
@@ -186,15 +222,15 @@ public class RegexGrammarParser extends Parser {
 
 	public final UnionContext union() throws RecognitionException {
 		UnionContext _localctx = new UnionContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_union);
+		enterRule(_localctx, 4, RULE_union);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(36);
+			setState(40);
 			simpleRe();
-			setState(37);
+			setState(41);
 			match(T__0);
-			setState(38);
+			setState(42);
 			re();
 			}
 		}
@@ -245,9 +281,9 @@ public class RegexGrammarParser extends Parser {
 
 	public final SimpleReContext simpleRe() throws RecognitionException {
 		SimpleReContext _localctx = new SimpleReContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_simpleRe);
+		enterRule(_localctx, 6, RULE_simpleRe);
 		try {
-			setState(42);
+			setState(46);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
@@ -255,7 +291,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(40);
+				setState(44);
 				basicRe();
 				}
 				}
@@ -265,7 +301,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(41);
+				setState(45);
 				concatenation();
 				}
 				}
@@ -303,16 +339,16 @@ public class RegexGrammarParser extends Parser {
 
 	public final ConcatenationContext concatenation() throws RecognitionException {
 		ConcatenationContext _localctx = new ConcatenationContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_concatenation);
+		enterRule(_localctx, 8, RULE_concatenation);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(44);
+			setState(48);
 			basicRe();
 			}
 			{
-			setState(45);
+			setState(49);
 			simpleRe();
 			}
 			}
@@ -375,9 +411,9 @@ public class RegexGrammarParser extends Parser {
 
 	public final BasicReContext basicRe() throws RecognitionException {
 		BasicReContext _localctx = new BasicReContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_basicRe);
+		enterRule(_localctx, 10, RULE_basicRe);
 		try {
-			setState(50);
+			setState(54);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
@@ -385,7 +421,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(47);
+				setState(51);
 				star();
 				}
 				}
@@ -395,7 +431,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(48);
+				setState(52);
 				plus();
 				}
 				}
@@ -405,7 +441,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				{
-				setState(49);
+				setState(53);
 				elementaryRe();
 				}
 				}
@@ -440,15 +476,15 @@ public class RegexGrammarParser extends Parser {
 
 	public final StarContext star() throws RecognitionException {
 		StarContext _localctx = new StarContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_star);
+		enterRule(_localctx, 12, RULE_star);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(52);
+			setState(56);
 			elementaryRe();
 			}
-			setState(53);
+			setState(57);
 			match(T__1);
 			}
 		}
@@ -480,15 +516,15 @@ public class RegexGrammarParser extends Parser {
 
 	public final PlusContext plus() throws RecognitionException {
 		PlusContext _localctx = new PlusContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_plus);
+		enterRule(_localctx, 14, RULE_plus);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(55);
+			setState(59);
 			elementaryRe();
 			}
-			setState(56);
+			setState(60);
 			match(T__2);
 			}
 		}
@@ -572,9 +608,9 @@ public class RegexGrammarParser extends Parser {
 
 	public final ElementaryReContext elementaryRe() throws RecognitionException {
 		ElementaryReContext _localctx = new ElementaryReContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_elementaryRe);
+		enterRule(_localctx, 16, RULE_elementaryRe);
 		try {
-			setState(63);
+			setState(67);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__3:
@@ -582,7 +618,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(58);
+				setState(62);
 				group();
 				}
 				}
@@ -592,7 +628,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(59);
+				setState(63);
 				any();
 				}
 				}
@@ -602,7 +638,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				{
-				setState(60);
+				setState(64);
 				eos();
 				}
 				}
@@ -612,7 +648,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				{
-				setState(61);
+				setState(65);
 				letra();
 				}
 				}
@@ -622,7 +658,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				{
-				setState(62);
+				setState(66);
 				set();
 				}
 				}
@@ -667,18 +703,18 @@ public class RegexGrammarParser extends Parser {
 
 	public final GroupContext group() throws RecognitionException {
 		GroupContext _localctx = new GroupContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_group);
+		enterRule(_localctx, 18, RULE_group);
 		try {
 			_localctx = new ReGroupContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
+			setState(69);
 			match(T__3);
 			{
-			setState(66);
+			setState(70);
 			re();
 			}
-			setState(67);
+			setState(71);
 			match(T__4);
 			}
 		}
@@ -707,11 +743,11 @@ public class RegexGrammarParser extends Parser {
 
 	public final AnyContext any() throws RecognitionException {
 		AnyContext _localctx = new AnyContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_any);
+		enterRule(_localctx, 20, RULE_any);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(69);
+			setState(73);
 			match(T__5);
 			}
 		}
@@ -740,11 +776,11 @@ public class RegexGrammarParser extends Parser {
 
 	public final EosContext eos() throws RecognitionException {
 		EosContext _localctx = new EosContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_eos);
+		enterRule(_localctx, 22, RULE_eos);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(71);
+			setState(75);
 			match(T__6);
 			}
 		}
@@ -774,11 +810,11 @@ public class RegexGrammarParser extends Parser {
 
 	public final LetraContext letra() throws RecognitionException {
 		LetraContext _localctx = new LetraContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_letra);
+		enterRule(_localctx, 24, RULE_letra);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73);
+			setState(77);
 			match(CHAR);
 			}
 		}
@@ -810,17 +846,17 @@ public class RegexGrammarParser extends Parser {
 
 	public final SetContext set() throws RecognitionException {
 		SetContext _localctx = new SetContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_set);
+		enterRule(_localctx, 26, RULE_set);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(75);
+			setState(79);
 			match(T__7);
 			{
-			setState(76);
+			setState(80);
 			setItems();
 			}
-			setState(77);
+			setState(81);
 			match(T__8);
 			}
 		}
@@ -874,9 +910,9 @@ public class RegexGrammarParser extends Parser {
 
 	public final SetItemsContext setItems() throws RecognitionException {
 		SetItemsContext _localctx = new SetItemsContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_setItems);
+		enterRule(_localctx, 28, RULE_setItems);
 		try {
-			setState(83);
+			setState(87);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
@@ -884,7 +920,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(79);
+				setState(83);
 				setItem();
 				}
 				}
@@ -894,11 +930,11 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(80);
+				setState(84);
 				setItem();
 				}
 				{
-				setState(81);
+				setState(85);
 				setItems();
 				}
 				}
@@ -952,9 +988,9 @@ public class RegexGrammarParser extends Parser {
 
 	public final SetItemContext setItem() throws RecognitionException {
 		SetItemContext _localctx = new SetItemContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_setItem);
+		enterRule(_localctx, 30, RULE_setItem);
 		try {
-			setState(87);
+			setState(91);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
@@ -962,7 +998,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(85);
+				setState(89);
 				range();
 				}
 				}
@@ -972,7 +1008,7 @@ public class RegexGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(86);
+				setState(90);
 				letra();
 				}
 				}
@@ -1010,18 +1046,18 @@ public class RegexGrammarParser extends Parser {
 
 	public final RangeContext range() throws RecognitionException {
 		RangeContext _localctx = new RangeContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_range);
+		enterRule(_localctx, 32, RULE_range);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(89);
+			setState(93);
 			letra();
 			}
-			setState(90);
+			setState(94);
 			match(T__9);
 			{
-			setState(91);
+			setState(95);
 			letra();
 			}
 			}
@@ -1038,28 +1074,29 @@ public class RegexGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16`\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16d\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\5\2%\n"+
-		"\2\3\3\3\3\3\3\3\3\3\4\3\4\5\4-\n\4\3\5\3\5\3\5\3\6\3\6\3\6\5\6\65\n\6"+
-		"\3\7\3\7\3\7\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\5\tB\n\t\3\n\3\n\3\n\3\n"+
-		"\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\5\17"+
-		"V\n\17\3\20\3\20\5\20Z\n\20\3\21\3\21\3\21\3\21\3\21\2\2\22\2\4\6\b\n"+
-		"\f\16\20\22\24\26\30\32\34\36 \2\2\2Y\2$\3\2\2\2\4&\3\2\2\2\6,\3\2\2\2"+
-		"\b.\3\2\2\2\n\64\3\2\2\2\f\66\3\2\2\2\169\3\2\2\2\20A\3\2\2\2\22C\3\2"+
-		"\2\2\24G\3\2\2\2\26I\3\2\2\2\30K\3\2\2\2\32M\3\2\2\2\34U\3\2\2\2\36Y\3"+
-		"\2\2\2 [\3\2\2\2\"%\5\6\4\2#%\5\4\3\2$\"\3\2\2\2$#\3\2\2\2%\3\3\2\2\2"+
-		"&\'\5\6\4\2\'(\7\3\2\2()\5\2\2\2)\5\3\2\2\2*-\5\n\6\2+-\5\b\5\2,*\3\2"+
-		"\2\2,+\3\2\2\2-\7\3\2\2\2./\5\n\6\2/\60\5\6\4\2\60\t\3\2\2\2\61\65\5\f"+
-		"\7\2\62\65\5\16\b\2\63\65\5\20\t\2\64\61\3\2\2\2\64\62\3\2\2\2\64\63\3"+
-		"\2\2\2\65\13\3\2\2\2\66\67\5\20\t\2\678\7\4\2\28\r\3\2\2\29:\5\20\t\2"+
-		":;\7\5\2\2;\17\3\2\2\2<B\5\22\n\2=B\5\24\13\2>B\5\26\f\2?B\5\30\r\2@B"+
-		"\5\32\16\2A<\3\2\2\2A=\3\2\2\2A>\3\2\2\2A?\3\2\2\2A@\3\2\2\2B\21\3\2\2"+
-		"\2CD\7\6\2\2DE\5\2\2\2EF\7\7\2\2F\23\3\2\2\2GH\7\b\2\2H\25\3\2\2\2IJ\7"+
-		"\t\2\2J\27\3\2\2\2KL\7\r\2\2L\31\3\2\2\2MN\7\n\2\2NO\5\34\17\2OP\7\13"+
-		"\2\2P\33\3\2\2\2QV\5\36\20\2RS\5\36\20\2ST\5\34\17\2TV\3\2\2\2UQ\3\2\2"+
-		"\2UR\3\2\2\2V\35\3\2\2\2WZ\5 \21\2XZ\5\30\r\2YW\3\2\2\2YX\3\2\2\2Z\37"+
-		"\3\2\2\2[\\\5\30\r\2\\]\7\f\2\2]^\5\30\r\2^!\3\2\2\2\b$,\64AUY";
+		"\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\3\2\3"+
+		"\2\3\3\3\3\5\3)\n\3\3\4\3\4\3\4\3\4\3\5\3\5\5\5\61\n\5\3\6\3\6\3\6\3\7"+
+		"\3\7\3\7\5\79\n\7\3\b\3\b\3\b\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\5\nF\n\n"+
+		"\3\13\3\13\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\17\3\17\3\17\3\17\3\20"+
+		"\3\20\3\20\3\20\5\20Z\n\20\3\21\3\21\5\21^\n\21\3\22\3\22\3\22\3\22\3"+
+		"\22\2\2\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2\2\2\\\2$\3\2\2"+
+		"\2\4(\3\2\2\2\6*\3\2\2\2\b\60\3\2\2\2\n\62\3\2\2\2\f8\3\2\2\2\16:\3\2"+
+		"\2\2\20=\3\2\2\2\22E\3\2\2\2\24G\3\2\2\2\26K\3\2\2\2\30M\3\2\2\2\32O\3"+
+		"\2\2\2\34Q\3\2\2\2\36Y\3\2\2\2 ]\3\2\2\2\"_\3\2\2\2$%\5\4\3\2%\3\3\2\2"+
+		"\2&)\5\b\5\2\')\5\6\4\2(&\3\2\2\2(\'\3\2\2\2)\5\3\2\2\2*+\5\b\5\2+,\7"+
+		"\3\2\2,-\5\4\3\2-\7\3\2\2\2.\61\5\f\7\2/\61\5\n\6\2\60.\3\2\2\2\60/\3"+
+		"\2\2\2\61\t\3\2\2\2\62\63\5\f\7\2\63\64\5\b\5\2\64\13\3\2\2\2\659\5\16"+
+		"\b\2\669\5\20\t\2\679\5\22\n\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29\r"+
+		"\3\2\2\2:;\5\22\n\2;<\7\4\2\2<\17\3\2\2\2=>\5\22\n\2>?\7\5\2\2?\21\3\2"+
+		"\2\2@F\5\24\13\2AF\5\26\f\2BF\5\30\r\2CF\5\32\16\2DF\5\34\17\2E@\3\2\2"+
+		"\2EA\3\2\2\2EB\3\2\2\2EC\3\2\2\2ED\3\2\2\2F\23\3\2\2\2GH\7\6\2\2HI\5\4"+
+		"\3\2IJ\7\7\2\2J\25\3\2\2\2KL\7\b\2\2L\27\3\2\2\2MN\7\t\2\2N\31\3\2\2\2"+
+		"OP\7\r\2\2P\33\3\2\2\2QR\7\n\2\2RS\5\36\20\2ST\7\13\2\2T\35\3\2\2\2UZ"+
+		"\5 \21\2VW\5 \21\2WX\5\36\20\2XZ\3\2\2\2YU\3\2\2\2YV\3\2\2\2Z\37\3\2\2"+
+		"\2[^\5\"\22\2\\^\5\32\16\2][\3\2\2\2]\\\3\2\2\2^!\3\2\2\2_`\5\32\16\2"+
+		"`a\7\f\2\2ab\5\32\16\2b#\3\2\2\2\b(\608EY]";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

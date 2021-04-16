@@ -10,6 +10,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface RegexGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link RegexGrammarParser#s}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitS(RegexGrammarParser.SContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code SimpleReRe}
 	 * labeled alternative in {@link RegexGrammarParser#re}.
 	 * @param ctx the parse tree
